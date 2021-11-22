@@ -13,5 +13,5 @@ def handle_request():
     password_from_user_form = request.form['password']
     uName = request.form['firstname']
 
-    createUser(uname, password_from_user_form)
+    createUser(uName, password_from_user_form)
     return json_response(_status_ = "Good", message = 'User Sucessfully Created')
