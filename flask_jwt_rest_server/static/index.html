@@ -35,13 +35,13 @@
 					$('#login').hide();
 					$('#books').show();
 
-					/*for(var i = 0; i < data.books.name.length; i++){
+					for(var i = 0; i < data.booksName.length; i++){
 							$('#bookList').append($('<option>',{
-								value: data.books.name[i],
-								text: 'Title: ' + data.books.name[i] + ' Price: $' + data.books.price[i]
+								value: data.booksName[i],
+								text: 'Title: ' + data.booksName[i] + ' Price: $' + data.booksPrice[i]
 							}));
 						}
-*/
+
 					},
                                                 function(err){ console.log(err) });
 		}
@@ -82,7 +82,7 @@
   			<label for="fname">First name:</label><br>
   				<input type="text" id="fname" name="fname" value="John"><br>
   			<label for="password">Password:</label><br>
-  				<input type="password" id="password" name="password" value="12212"><br><br>
+  				<input type="password" id="password" name="password" value="Doe"><br><br>
   			<input type="submit" value="Login" onclick="return send_form();">
 			<input type="button" value="Create New User" onclick="return addUserForm();">
 		</form>
