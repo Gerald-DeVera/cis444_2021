@@ -29,7 +29,7 @@ def checkAuth(user, passw):
 def createUser(user, passw):
     logger.debug("Creating a new User")
 
-    salted = bcrypt.hashpw(bytes(request.form['passw'], 'utf-8'), bcrypt.gensalt(10))
+    salted = bcrypt.hashpw(bytes(passw, 'utf-8'), bcrypt.gensalt(10))
 
     cur = global_db_con.cursor()
     dbEntry = "INSERT INTO users(username, password) VALUES('"
