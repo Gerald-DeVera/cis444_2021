@@ -57,7 +57,7 @@
 						console.log(book_id)
 						console.log(curUser)
                     	//make secure call with the jwt
-                        secure_get_with_token("/secure_api/buy_book", {"book_id" : book_id, "userName" : curUser} , function(data){console.log("got books"); console.log(data)},
+                        secure_post_with_token("/secure_api/buy_book", {"book_id" : book_id, "userName" : curUser} , function(data){console.log("got books"); console.log(data)},
                                                 function(err){ console.log(err) });
                 }
 
