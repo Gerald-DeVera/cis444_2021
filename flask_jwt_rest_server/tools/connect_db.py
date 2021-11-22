@@ -5,6 +5,8 @@ from tools.token_tools import create_token
 from tools.logging import logger
 from db_con import get_db_instance, get_db
 
+global_db_con = get_db()
+
 def checkAuth(user, passw):
     logger.debug("Checking to auth user")
 
