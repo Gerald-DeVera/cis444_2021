@@ -1,5 +1,5 @@
 from flask import request, g
-from flask.app import _Status
+#from flask.app import _Status
 from flask_json import FlaskJSON, JsonError, json_response, as_json
 from tools.connect_db import createUser
 from tools.token_tools import create_token
@@ -14,4 +14,4 @@ def handle_request():
     uName = request.form['firstname']
 
     createUser(uname, password_from_user_form)
-    return json_response(_Status = "Good", message = 'User Sucessfully Created')
+    return json_response(_status_ = "Good", message = 'User Sucessfully Created')
