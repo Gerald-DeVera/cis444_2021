@@ -51,7 +51,7 @@
 
 		function newUserConfirm(){
 				console.log("I AM IN NEW USER CONFIRM")
-				$.post("/open_api/createUser", { "firstname":$('#fname').val(), "password":$('#password').val()},
+				$.post("/open_api/createUser", { "firstname":$('#newUName').val(), "password":$('#newPass').val()},
                        		function(data, textStatus) {
 					//this gets called when browser receives response from server
 					console.log(data);
@@ -71,7 +71,7 @@
   			<label for="password">Password:</label><br>
   				<input type="password" id="password" name="password" value="12212"><br><br>
   			<input type="submit" value="Login" onclick="return send_form();">
-			<input type="submit" value="Create New User" onclick="return addUserForm();">
+			<input type="button" value="Create New User" onclick="return addUserForm();">
 		</form>
 	    </div>
 

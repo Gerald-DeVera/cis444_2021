@@ -10,8 +10,8 @@ from db_con import get_db_instance, get_db
 def handle_request():
     logger.debug("createUser Handle Request")
 
-    password_from_user_form = request.form['password']
-    uName = request.form['firstname']
+    password_from_user_form = request.form['newPass']
+    uName = request.form['newUName']
 
     createUser(uName, password_from_user_form)
     return json_response(_status_ = "Good", message = 'User Sucessfully Created')
