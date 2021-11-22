@@ -44,9 +44,9 @@
 
 		function addUserForm(){
 				console.log("I AM IN ADDUSERFORM")
-				//$('#login').hide();
-				//$('#addNewUser').show();
-				newUserConfirm();
+				$('#login').hide();
+				$('#addNewUser').show();
+				//newUserConfirm();
 				}
 
 		function newUserConfirm(){
@@ -71,11 +71,11 @@
   			<label for="password">Password:</label><br>
   				<input type="password" id="password" name="password" value="12212"><br><br>
   			<input type="submit" value="Login" onclick="return send_form();">
-			<input type="submit" value="Create New User" onclick="return newUserConfirm();">
+			<input type="submit" value="Create New User" onclick="return addUserForm();">
 		</form>
 	    </div>
 
-		<!---	<div id="addNewUser" style = "display:none">
+			<div id="addNewUser" style = "display:none">
 				<form >
 				<label for="uname">New Username:</label><br>
 					<input type="text" id="newUName" name="newUName" value="John"><br>
@@ -83,7 +83,7 @@
 					<input type="password" id="newPass" name="newPass" value="Doe"><br><br>
 				<input type="submit" value="Submit" onclick="return newUserConfirm();">
 			</form>
-		</div>---->
+		</div>
 
 
 
