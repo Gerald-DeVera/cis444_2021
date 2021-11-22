@@ -14,7 +14,7 @@
 		function send_form(){
 			console.log("I am in send form");
 			curUser = document.getElementById("fname").value;
-			console.log(curUser);
+			//console.log(curUser);
 			$.post("/open_api/login", { "firstname":$('#fname').val(), "password":$('#password').val()},
                        		function(data, textStatus) {
 					//this gets called when browser receives response from server
@@ -55,7 +55,7 @@
 						var e = document.getElementById('bookList');
 						var book_id = e.options[e.selectedIndex].value;
                     	//make secure call with the jwt
-                        secure_get_with_token("/secure_api/buy_book", {"book_id" : book_id, "user":jwt} , function(data){console.log("got books"); console.log(data)},
+                        secure_get_with_token("/secure_api/buy_book", {"book_id" : book_id, "user" : curUser} , function(data){console.log("got books"); console.log(data)},
                                                 function(err){ console.log(err) });
                 }
 

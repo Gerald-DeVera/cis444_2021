@@ -69,8 +69,18 @@ def retrieveBooksPrice():
 
     return price
 
-def purchase():
+def purchase(curUser, bookName, time):
     logger.debug("Submitting purchase")
     cur = global_db_con.cursor()
 
-    
+    dbEntry = "INSERT INTO purchases(userID, book, date) VALUES('"
+    dbEntry += str(curUser)
+    dbEntry += "','"
+    dbEntry += str(bookName)
+    dbEntry += "','"
+    dbEntry += str(time)
+    dbEntry += "');"
+
+    print(dbEntry)
+
+    return json_response(message = "Success")

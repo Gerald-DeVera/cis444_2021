@@ -8,9 +8,13 @@ from tools.logging import logger
 
 def handle_request():
     logger.debug("buy_book Handle Request")
+    curUser = request.form['user']
     bookName = request.form['book_id']
     time = datetime.datetime.now()
+    
+    purchase(curUser, bookName, time)
 
-        
+    return json_response(message = "Sucess")
+
     
 
