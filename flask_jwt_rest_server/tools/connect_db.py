@@ -5,6 +5,10 @@ from tools.token_tools import create_token
 from tools.logging import logger
 from db_con import get_db_instance, get_db
 
+import jwt
+import bcrypt
+
+
 global_db_con = get_db()
 
 def checkAuth(user, passw):
@@ -12,7 +16,7 @@ def checkAuth(user, passw):
 
     cur = global_db_con.cursor()
     dbEntry = "SELECT password FROM users WHERE username ='"
-    dbEntry += request.form['uname']
+    dbEntry += user
     dbEntry += "';"
     cur.execute(dbEntry)
     r = cur.fetchone()
