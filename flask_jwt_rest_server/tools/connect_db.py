@@ -9,10 +9,10 @@ def checkAuth(user, passw):
     logger.debug("Checking to auth user")
 
     cur = global_db_con.cursor()
-	dbEntry = "SELECT password FROM users WHERE username ='"
-	dbEntry += request.form['uname']
-	dbEntry += "';"
-	cur.execute(dbEntry)
+    dbEntry = "SELECT password FROM users WHERE username ='"
+    dbEntry += request.form['uname']
+    dbEntry += "';"
+    cur.execute(dbEntry)
     r = cur.fetchone()
     upass = str(r[0])
 
