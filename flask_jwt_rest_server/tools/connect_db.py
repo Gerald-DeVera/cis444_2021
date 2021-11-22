@@ -40,8 +40,8 @@ def createUser(user, passw):
 
     logger.debug(dbEntry)
 
-    #cur.execute(dbEntry)
-    #global_db_con.commit()
+    cur.execute(dbEntry)
+    global_db_con.commit()
 
     return json_response(_Status = "Good", message = 'User Sucessfully Created')
 
@@ -68,3 +68,7 @@ def retrieveBooksPrice():
     logger.debug(price[1])
 
     return price
+
+def purchase():
+    logger.debug("Submitting purchase")
+    cur = global_db_con.cursor()
