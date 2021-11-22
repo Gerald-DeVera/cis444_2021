@@ -72,3 +72,5 @@ def retrieveBooksPrice():
 def purchase():
     logger.debug("Submitting purchase")
     cur = global_db_con.cursor()
+
+    

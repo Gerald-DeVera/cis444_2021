@@ -16,7 +16,7 @@ from tools.get_aws_secrets import get_secrets
 from tools.logging import logger
 
 ERROR_MSG = "Ooops.. Didn't work!"
-
+user = ""
 
 #Create our app
 app = Flask(__name__)

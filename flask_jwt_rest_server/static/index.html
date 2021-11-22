@@ -8,9 +8,13 @@
     <body>
 
 	<script>
+
+		var curUser;
+
 		function send_form(){
 			console.log("I am in send form");
-
+			curUser = '#fname.val'
+			console.log(curUser);
 			$.post("/open_api/login", { "firstname":$('#fname').val(), "password":$('#password').val()},
                        		function(data, textStatus) {
 					//this gets called when browser receives response from server
@@ -70,6 +74,7 @@
 					console.log(data);
 					$('#login').show();
 					$('#addNewUser').hide();
+					alert("New User Successfully Created");
 				}, "json").fail( function(response) {
 					//this gets called if the server throws an error
 					console.log("error");
