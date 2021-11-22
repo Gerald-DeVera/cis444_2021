@@ -1,11 +1,11 @@
 from flask import request, g
 from flask_json import FlaskJSON, JsonError, json_response, as_json
-from flask_jwt_rest_server.tools.connect_db import checkAuth
+from tools.connect_db import checkAuth
 from tools.token_tools import create_token
 
 from tools.logging import logger
 from db_con import get_db_instance, get_db
-from tools import connect_db
+
 
 def handle_request():
     logger.debug("Login Handle Request")
