@@ -9,7 +9,8 @@ from tools.logging import logger
 def handle_request():
     logger.debug("buy_book Handle Request")
     
-    curUser = request.form['userName']
+    curUser = "test"
+    #curUser = request.form['userName']
     bookName = request.form['book_id']
     time = datetime.datetime.now()
 
