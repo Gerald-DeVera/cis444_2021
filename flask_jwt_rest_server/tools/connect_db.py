@@ -40,4 +40,9 @@ def createUser(user, passw):
 
     logger.debug(dbEntry)
 
+    #cur.execute(dbEntry)
+    #global_db_con.commit()
+
+    return json_response(_Status = "Good", message = 'User Sucessfully Created')
+
 

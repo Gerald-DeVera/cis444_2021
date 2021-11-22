@@ -43,13 +43,14 @@
                 }
 
 		function addUserForm(){
+				console.log("I AM IN ADDUSERFORM")
 				$('#login').hide();
 				$('#addNewUser').show();
 				return true;
 				}
 
 		function newUserConfirm(){
-				alert("New User Created");
+				console.log("I AM IN NEW USER CONFIRM")
 				$.post("/open_api/createUser", { "firstname":$('#newUName').val(), "password":$('#newPass').val()},
                        		function(data, textStatus) {
 					//this gets called when browser receives response from server
