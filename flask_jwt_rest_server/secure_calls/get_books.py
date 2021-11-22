@@ -9,7 +9,7 @@ from tools.logging import logger
 def handle_request():
     logger.debug("Get Books Handle Request")
 
-    retrieveBooks()
+    return json_response(retrieveBooks())
 
-    return json_response( token = create_token(  g.jwt_data ) , books = "testBook")
+    #return json_response( token = create_token(  g.jwt_data ) , books = "testBook")
 

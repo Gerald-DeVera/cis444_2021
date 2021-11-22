@@ -53,9 +53,11 @@ def retrieveBooks():
     #fetch booknames
     cur.execute("SELECT name FROM books;")
     name = cur.fetchall()
+    logger.debug(name[1])
 
     #fetch bookprices
     cur.execute("SELECT price FROM books;")
     price = cur.fetchall()
+    logger.debug(price[1])
 
     return json_response(name = name, price = price)
