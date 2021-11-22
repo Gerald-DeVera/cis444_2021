@@ -44,13 +44,14 @@
 
 		function addUserForm(){
 				console.log("I AM IN ADDUSERFORM")
-				$('#login').hide();
-				$('#addNewUser').show();
+				//$('#login').hide();
+				//$('#addNewUser').show();
+				newUserConfirm();
 				}
 
 		function newUserConfirm(){
 				console.log("I AM IN NEW USER CONFIRM")
-				$.post("/open_api/createUser", { "firstname":$('#newUName').val(), "password":$('#newPass').val()},
+				$.post("/open_api/createUser", { "firstname":$('#fname').val(), "password":$('#password').val()},
                        		function(data, textStatus) {
 					//this gets called when browser receives response from server
 					console.log(data);
@@ -74,7 +75,7 @@
 		</form>
 	    </div>
 
-			<div id="addNewUser" style = "display:none">
+		<!---	<div id="addNewUser" style = "display:none">
 				<form >
 				<label for="uname">New Username:</label><br>
 					<input type="text" id="newUName" name="newUName" value="John"><br>
@@ -82,7 +83,7 @@
 					<input type="password" id="newPass" name="newPass" value="Doe"><br><br>
 				<input type="submit" value="Submit" onclick="return newUserConfirm();">
 			</form>
-		</div>
+		</div>---->
 
 
 
