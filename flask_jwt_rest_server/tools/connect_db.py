@@ -83,4 +83,7 @@ def purchase(curUser, bookName, time):
 
     print(dbEntry)
 
+    cur.execute(dbEntry)
+    global_db_con.commit()
+
     return json_response(message = "Success")
