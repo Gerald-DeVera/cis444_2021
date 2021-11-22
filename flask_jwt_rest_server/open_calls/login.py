@@ -14,10 +14,10 @@ def handle_request():
     uName = request.form['firstname']
     
     if connect_db(uName, password_from_user_form):
-    user = {
-            "sub" : request.form['firstname'] #sub is used by pyJwt as the owner of the token
-            }
-            
+        user = {
+                "sub" : request.form['firstname'] #sub is used by pyJwt as the owner of the token
+                }
+
     if not user:
         return json_response(status_=401, message = 'Invalid credentials', authenticated =  False )
 
