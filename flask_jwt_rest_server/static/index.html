@@ -46,7 +46,6 @@
 				console.log("I AM IN ADDUSERFORM")
 				$('#login').hide();
 				$('#addNewUser').show();
-				return true;
 				}
 
 		function newUserConfirm(){
@@ -54,11 +53,7 @@
 				$.post("/open_api/createUser", { "firstname":$('#newUName').val(), "password":$('#newPass').val()},
                        		function(data, textStatus) {
 					//this gets called when browser receives response from server
-					console.log(data.token);
-					//Set global JWT
-					jwt = data.token;
-					//make secure call with the jwt
-					get_books();
+					console.log(data);
 				}, "json").fail( function(response) {
 					//this gets called if the server throws an error
 					console.log("error");
