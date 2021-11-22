@@ -31,17 +31,17 @@
 			 //make secure call with the jwt
 			secure_get_with_token("/secure_api/get_books", {} , function(data){
 					console.log("got books"); 
-					console.log(data.books.name[1]); 
+					console.log(data.booksName[1]); 
 					$('#login').hide();
 					$('#books').show();
 
-					for(var i = 0; i < data.books.name.length; i++){
+					/*for(var i = 0; i < data.books.name.length; i++){
 							$('#bookList').append($('<option>',{
 								value: data.books.name[i],
 								text: 'Title: ' + data.books.name[i] + ' Price: $' + data.books.price[i]
 							}));
 						}
-
+*/
 					},
                                                 function(err){ console.log(err) });
 		}
