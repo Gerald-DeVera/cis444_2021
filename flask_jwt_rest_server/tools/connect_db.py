@@ -45,4 +45,17 @@ def createUser(user, passw):
 
     return json_response(_Status = "Good", message = 'User Sucessfully Created')
 
+def retrieveBooks():
+    logger.debug("Retrieving Books")
 
+    cur = global_db_con.cursor()
+    
+    #fetch booknames
+    cur.execute("SELECT name FROM books;")
+    name = cur.fetchall()
+
+    #fetch bookprices
+    cur.execute("SELECT price FROM books;")
+    price = cur.fetchall()
+
+    return json_response(name = name, price = price)
