@@ -9,6 +9,8 @@
 
 	<script>
 		function send_form(){
+			console.log("I am in send form");
+
 			$.post("/open_api/login", { "firstname":$('#fname').val(), "password":$('#password').val()},
                        		function(data, textStatus) {
 					//this gets called when browser receives response from server
