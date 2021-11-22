@@ -1,5 +1,6 @@
 from flask import request, g
 from flask_json import FlaskJSON, JsonError, json_response, as_json
+from flask_jwt_rest_server.tools.connect_db import checkAuth
 from tools.token_tools import create_token
 
 from tools.logging import logger
@@ -13,7 +14,7 @@ def handle_request():
     password_from_user_form = request.form['password']
     uName = request.form['firstname']
     
-    if connect_db(uName, password_from_user_form):
+    if checkAuth(uName, password_from_user_form):
         user = {
                 "sub" : request.form['firstname'] #sub is used by pyJwt as the owner of the token
                 }
