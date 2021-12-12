@@ -79,7 +79,11 @@
 					console.log(data);
 					$('#login').show();
 					$('#addNewUser').hide();
-					alert("New User Successfully Created");
+
+					if(data = 'Good')
+						alert("New User Successfully Created");
+					else
+						alert("User already exists.")
 				}, "json").fail( function(response) {
 					//this gets called if the server throws an error
 					console.log("error");
