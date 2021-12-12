@@ -89,7 +89,7 @@
 				}
 
 		function myFunction() {
-			var paragraph = getElementById(demo);	
+			var paragraph = document.getElementById('demo');	
 			if (navigator.geolocation) {
  			   navigator.geolocation.getCurrentPosition(showPosition);
  			} else {
@@ -98,7 +98,7 @@
 		}
 
 		function getCurrentPosition(position){
-			var paragraph = getElementById(demo);
+			var paragraph = document.getElementById('demo');	
 			paragraph.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
 		}
 	</script>
