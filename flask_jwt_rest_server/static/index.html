@@ -78,10 +78,11 @@
 					//this gets called when browser receives response from server
 					console.log(data);
 					console.log(data._status_);
+					x = data._status_.toString();
 					$('#login').show();
 					$('#addNewUser').hide();
 
-					if(data._status_ = "Good")
+					if(x == "Good" || 'Good')
 						alert("New User Successfully Created");
 					else
 						alert("User already exists.")
