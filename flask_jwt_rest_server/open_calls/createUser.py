@@ -1,7 +1,7 @@
 from flask import request, g
 #from flask.app import _Status
 from flask_json import FlaskJSON, JsonError, json_response, as_json
-from flask_jwt_rest_server.tools.connect_db import checkExist
+#from flask_jwt_rest_server.tools.connect_db import checkExist
 from tools.connect_db import createUser, checkExist
 from tools.token_tools import create_token
 
