@@ -78,14 +78,14 @@
 					//this gets called when browser receives response from server
 					console.log(data);
 					console.log(data._status_);
-					x = data._status_.toString();
+					x = data._status_.toString() + ": " + data.message.toString();
 					$('#login').show();
 					$('#addNewUser').hide();
 
-					if(x == "Good" || 'Good')
-						alert("New User Successfully Created");
-					else
-						alert("User already exists.")
+					//if(x == "Good" || 'Good')
+						alert(x);
+					//else
+					//	alert("User already exists.")
 				}, "json").fail( function(response) {
 					//this gets called if the server throws an error
 					console.log("error");
