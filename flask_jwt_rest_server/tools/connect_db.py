@@ -41,9 +41,26 @@ def createUser(user, passw):
     logger.debug(dbEntry)
 
     cur.execute(dbEntry)
-    global_db_con.commit()
+    #global_db_con.commit()
 
     return json_response(_Status = "Good", message = 'User Sucessfully Created')
+
+def checkExist(user):
+    logger.debug("Checking to see if user already exists")
+
+    cur = global_db_con.cursor()
+
+    dbEntry = "SELECT username FROM users WHERE username ="
+    dbEntry += "'"
+    dbEntry += user
+    dbEntry += "'"
+
+    r = cur.fetchone()
+
+    if r:
+        return True
+
+    return False
 
 def retrieveBooksName():
     logger.debug("Retrieving Books Name")
@@ -87,3 +104,4 @@ def purchase(curUser, bookName, time):
     global_db_con.commit()
 
     return json_response(message = "Success")
+
