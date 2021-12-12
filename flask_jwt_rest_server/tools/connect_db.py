@@ -55,6 +55,9 @@ def checkExist(user):
     dbEntry += user
     dbEntry += "'"
 
+    logger.debug(dbEntry)
+    cur.execute(dbEntry)
+    
     r = cur.fetchone()
 
     if r:
