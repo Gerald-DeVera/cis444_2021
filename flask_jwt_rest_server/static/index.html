@@ -51,6 +51,7 @@
 					},
                                                 function(err){ console.log(err) });
 		}
+
         function buy_book(){
 						var e = document.getElementById('bookList');
 						var book_id = e.options[e.selectedIndex].value;
@@ -87,6 +88,19 @@
 			return false;
 				}
 
+		function myFunction() {
+			var paragraph = getElementById(demo);	
+			if (navigator.geolocation) {
+ 			   navigator.geolocation.getCurrentPosition(showPosition);
+ 			} else {
+  				paragraph.innerHTML = "Geolocation is not supported by this browser.";
+  			}
+		}
+
+		function getCurrentPosition(position){
+			var paragraph = getElementById(demo);
+			paragraph.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+		}
 	</script>
             <div id="login">
 	    	<form >
@@ -98,6 +112,8 @@
 			<input type="button" value="Create New User" onclick="return addUserForm();">
 		</form>
 	    </div>
+
+		<p id="demo" onclick="myFunction()">Click me to show location.</p>
 
 			<div id="addNewUser" style = "display:none">
 				<form >
