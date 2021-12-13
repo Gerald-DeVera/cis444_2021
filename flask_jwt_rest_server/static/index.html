@@ -121,8 +121,8 @@
 			//Location Data
 			//var latlong = position.coords.latitude + "," + position.coords.longitude;
 			$('#embedMap').show();
-			var lat = position.latitude.coords;
-			var long = position.longitude.coords;
+			var lat = position.coords.latitude;
+			var long = position.coords.longitude;
 
 			var latlong = new google.maps.LatLng(lat, long);
 			
