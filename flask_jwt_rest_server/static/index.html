@@ -117,12 +117,27 @@
 
 		function createMap(position){
 			//Location Data
-			var latlong = position.coords.latitude + "," + position.coords.longitude;
+			//var latlong = position.coords.latitude + "," + position.coords.longitude;
+			$('#embedMap').show();
+			var lat = position.latitude.coords;
+			var long = position.longitude.coords;
 
-			var mapLink = "https://maps.googleapis.com/maps/api/staticmap?center="+latlong+"&zoom=16&size=400x300&output=embed";
+			var latlong = new google.maps.LatLng(lat, long);
+			
+			var myOptions = {
+				center: latlong,
+				zoom: 16,
+				mapTypeControlOptions: {
+            		style:google.maps.NavigationControlStyle.SMALL
+        		}
+			}
+			var map = new google.maps.Map(document.getElementById("embedMap"), myOptions);
+			var marker = new google.maps.Marker({ position:latlong, map:map, title:"You are here!" });
+
+			//var mapLink = "https://maps.googleapis.com/maps/api/staticmap?center="+latlong+"&zoom=16&size=400x300&output=embed";
 
 			//create and insert map
-			document.getElementById("embedMap").innerHTML = "<img alt='Map Holder' src='"+ mapLink +"'>";
+			//document.getElementById("embedMap").innerHTML = "<img alt='Map Holder' src='"+ mapLink +"'>";
 		}
 	</script>
         <div id="login">
@@ -150,10 +165,14 @@
 
 		<button type="button" onclick="showMap()">Open Google Map</button>
 
-		<div id="embedMap" style="display:none">
+		<div id="embedMap" style="display:none; width: 400px; height: 300px;" >
 		</div>
-		<iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
-		src="https://www.google.com/maps/embed/v1/view?zoom=17&center=33.1518,-117.1121&key=AIzaSyCqHsEvaX5va8GXURbX4K1qigwpvPWVVW0"></iframe>
+
+
+<!--		<iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+		src="https://www.google.com/maps/embed/v1/view?zoom=17&center=33.1518,-117.1121&key=AIzaSyCqHsEvaX5va8GXURbX4K1qigwpvPWVVW0"></iframe>-->
+
+
 		<!--<div id="books" style="display:none">
 			<form id="bookDisplay">
 				<h1>Buy me</h1>
