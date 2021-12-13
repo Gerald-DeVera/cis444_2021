@@ -112,10 +112,12 @@
 		}
 
 		function showMap(){
-			navigator.geolocation.getCurrentPosition(showMap);
+			console.log("In show Map");
+			navigator.geolocation.getCurrentPosition(createMap);
 		}
 
 		function createMap(position){
+			console.log("In create Map");
 			//Location Data
 			//var latlong = position.coords.latitude + "," + position.coords.longitude;
 			$('#embedMap').show();
