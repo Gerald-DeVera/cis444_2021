@@ -26,7 +26,8 @@
 					console.log("this is jwt");
 					console.log(jwt);
 					//make secure call with the jwt
-					get_books();
+					//get_books();
+					$('#login').hide();
 				}, "json").fail( function(response) {
 					//this gets called if the server throws an error
 					console.log("error");
@@ -135,7 +136,7 @@
 		</form>
 	    </div>
 
-		<p id="demo" onclick="getCoords()">Click me to show location.</p>
+		<p id="demo" onclick="getCoords()" style="display:none">Click me to show location.</p>
 
 			<div id="addNewUser" style = "display:none">
 				<form >
@@ -147,7 +148,7 @@
 			</form>
 		</div>
 
-		<button type="button" onclick="showMap()"
+		<button type="button" onclick="showMap()">Open Google Map</button>
 
 		<div id="embedMap" style="display:none">
 		</div>
