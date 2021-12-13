@@ -5,6 +5,8 @@
 		     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	     <script src="/static/cis444.js"></script>
     </head>
+	<title>My website!</title>
+
     <body>
 
 	<script>
@@ -94,7 +96,7 @@
 			return false;
 				}
 
-		function myFunction() {
+		function getCoords() {
 			var paragraph = document.getElementById('demo');	
 			if (navigator.geolocation) {
  			   navigator.geolocation.getCurrentPosition(showPosition);
@@ -106,6 +108,20 @@
 		function showPosition(position){
 			var paragraph = document.getElementById('demo');	
 			paragraph.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+		}
+
+		function showMap(){
+			navigator.geolocation.getCurrentPosition(showMap);
+		}
+
+		function createMap(position){
+			//Location Data
+			var latlong = position.coords.latitude + "," + position.coords.longitude;
+
+			var mapLink = "https://maps.googleapis.com/maps/api/staticmap?center="+latlong+"&zoom=16&size=400x300&output=embed";
+
+			//create and insert map
+			document.getElementById("embedMap").innerHTML = "<img alt='Map Holder' src='"+ mapLink +"'>";
 		}
 	</script>
             <div id="login">
@@ -119,7 +135,7 @@
 		</form>
 	    </div>
 
-		<p id="demo" onclick="myFunction()">Click me to show location.</p>
+		<p id="demo" onclick="getCoords()">Click me to show location.</p>
 
 			<div id="addNewUser" style = "display:none">
 				<form >
@@ -131,13 +147,18 @@
 			</form>
 		</div>
 
+		<button type="button" onclick="showMap()"
 
-		<div id="books" style="display:none">
+		<div id="embedMap" style="display:none">
+		</div>
+
+		<!--<div id="books" style="display:none">
 			<form id="bookDisplay">
 				<h1>Buy me</h1>
 				<select name="bookList" id="bookList"></select><br>
 				<input type="button" value="Purchase Book" id="purchaseButton" onclick="return buy_book();">	
 			</form>
+		</div>-->
 	    <!--<button id="buybook" onclick="buy_book(1234)" style="display:none" >Buy Book</button>-->
     </body>
 </html>
