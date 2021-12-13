@@ -125,7 +125,7 @@
 			document.getElementById("embedMap").innerHTML = "<img alt='Map Holder' src='"+ mapLink +"'>";
 		}
 	</script>
-            <div id="login">
+        <div id="login">
 	    	<form >
   			<label for="fname">First name:</label><br>
   				<input type="text" id="fname" name="fname" value="John"><br>
@@ -133,7 +133,7 @@
   				<input type="password" id="password" name="password" value="Doe"><br><br>
   			<input type="submit" value="Login" onclick="return send_form();">
 			<input type="button" value="Create New User" onclick="return addUserForm();">
-		</form>
+			</form>
 	    </div>
 
 		<p id="demo" onclick="getCoords()" style="display:none">Click me to show location.</p>
@@ -152,7 +152,8 @@
 
 		<div id="embedMap" style="display:none">
 		</div>
-
+		<iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+		src="https://www.google.com/maps/embed/v1/view?zoom=17&center=33.1518,-117.1121&key=AIzaSyCqHsEvaX5va8GXURbX4K1qigwpvPWVVW0"></iframe>
 		<!--<div id="books" style="display:none">
 			<form id="bookDisplay">
 				<h1>Buy me</h1>
