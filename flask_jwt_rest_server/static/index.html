@@ -6,6 +6,9 @@
 	     <script src="/static/cis444.js"></script>
 		 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqHsEvaX5va8GXURbX4K1qigwpvPWVVW0&callback=initMap&libraries=&v=weekly"
 		 defer></script>
+		 <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqHsEvaX5va8GXURbX4K1qigwpvPWVVW0&libraries=places&callback=initMap">
+	</script>
 		<!-- <link rel="stylesheet" type="text/css" href="./style.css" />
 		 <script src="./index.js"></script>-->
     </head>
@@ -129,6 +132,7 @@
 		}
 
 		function createMap(position){
+
 			console.log("In create Map");
 			//Location Data
 			//var latlong = position.coords.latitude + "," + position.coords.longitude;
@@ -154,6 +158,34 @@
 			//create and insert map
 			//document.getElementById("embedMap").innerHTML = "<img alt='Map Holder' src='"+ mapLink +"'>";
 		}
+
+		function nearSearchInit(){
+			var lat = position.coords.latitude;
+			var long = position.coords.longitude;
+			var locat = new google.maps.LatLng(lat, long);
+
+			var reqType;
+
+			map = new google.maps.Map(document.getElementById("embedMap"), {center: locat, zoom: 15});
+
+			var request = {
+				location: locat,
+				radius: '500',
+				type: ['restaurant']
+			};
+
+			service = new google.maps.places.PlacesService(map)
+			service.nearbySearch(request, callback);
+		}
+
+		function callback(){
+			if(status == google.map.places.PlacesServiceStatus.OK){
+				for (var i = 0; i < results.length; i++) {
+     				 createMarker(results[i]);
+				}
+			}
+		}	
+
 	</script>
         <div id="login">
 	    	<form >
@@ -180,6 +212,8 @@
 		</div>
 
 		<button type="button" onclick="showMap()">Open Google Map</button>
+
+		<button type="button" onclick="nearSearchInit()">Search for Restaurants</button>
 
 		<div id="embedMap" style=" width: 400px; height: 300px;" >
 		</div>
