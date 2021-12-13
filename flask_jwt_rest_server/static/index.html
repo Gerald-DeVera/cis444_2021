@@ -159,7 +159,12 @@
 			//document.getElementById("embedMap").innerHTML = "<img alt='Map Holder' src='"+ mapLink +"'>";
 		}
 
-		function nearSearchInit(){
+		function nearSearchPosit(){
+			console.log("near search posit");
+			navigator.geolocation.getCurrentPosition(nearSearchInit);
+		}
+
+		function nearSearchInit(position){
 			var lat = position.coords.latitude;
 			var long = position.coords.longitude;
 			var locat = new google.maps.LatLng(lat, long);
@@ -213,7 +218,7 @@
 
 		<button type="button" onclick="showMap()">Open Google Map</button>
 
-		<button type="button" onclick="nearSearchInit()">Search for Restaurants</button>
+		<button type="button" onclick="nearSearchPosit()">Search for Restaurants</button>
 
 		<div id="embedMap" style=" width: 400px; height: 300px;" >
 		</div>
