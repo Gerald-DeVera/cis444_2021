@@ -151,7 +151,7 @@
         		}
 			}
 			var map = new google.maps.Map(document.getElementById("embedMap"), myOptions);
-			//var marker = new google.maps.Marker({ position:latlong, map:map, title:"You are here!" });
+			var marker = new google.maps.Marker({ position:latlong, map:map, title:"You are here!" });
 
 			//var mapLink = "https://maps.googleapis.com/maps/api/staticmap?center="+latlong+"&zoom=16&size=400x300&output=embed";
 
@@ -184,11 +184,12 @@
 		}
 
 		function callback(){
-			if(status == google.map.places.PlacesServiceStatus.OK){
+			console.log("callback of nearbysearch");
+			/*if(status == google.map.places.PlacesServiceStatus.OK){
 				for (var i = 0; i < results.length; i++) {
      				 createMarker(results[i]);
 				}
-			}
+			}*/
 		}	
 
 	</script>
