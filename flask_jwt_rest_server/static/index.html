@@ -6,8 +6,8 @@
 	     <script src="/static/cis444.js"></script>
 		 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqHsEvaX5va8GXURbX4K1qigwpvPWVVW0&callback=initMap&libraries=&v=weekly"
 		 defer></script>
-		 <link rel="stylesheet" type="text/css" href="./style.css" />
-		 <script src="./index.js"></script>
+		<!-- <link rel="stylesheet" type="text/css" href="./style.css" />
+		 <script src="./index.js"></script>-->
     </head>
 	<title>My website!</title>
 
@@ -131,14 +131,14 @@
 			var latlong = new google.maps.LatLng(lat, long);
 			
 			var myOptions = {
-				center: latlong,
+				center: {lat: lat, lng: long},
 				zoom: 16,
 				mapTypeControlOptions: {
             		style:google.maps.NavigationControlStyle.SMALL
         		}
 			}
 			var map = new google.maps.Map(document.getElementById("embedMap"), myOptions);
-			var marker = new google.maps.Marker({ position:latlong, map:map, title:"You are here!" });
+			//var marker = new google.maps.Marker({ position:latlong, map:map, title:"You are here!" });
 
 			//var mapLink = "https://maps.googleapis.com/maps/api/staticmap?center="+latlong+"&zoom=16&size=400x300&output=embed";
 
