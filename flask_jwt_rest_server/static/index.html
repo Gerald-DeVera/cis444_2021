@@ -225,13 +225,17 @@
 		function createMarker(place){
 			console.log("creating marker");
 			var type = place.types;
-			var iconStyle;
+			var iconStyle = {
+				Size: new google.maps.Size(50, 50),
+				map: map,
+				icon: "https://i.ebayimg.com/images/g/EhEAAOSwocFe-vel/s-l300.jpg"
+			};
 			for(var i = 0; i < type.length; i++){
 				var placeType = type[i];
 
 				switch(placeType){
 					case "restaurant":
-						iconStyle = "https://www.symbols.com/images/symbol/330_restaurant.png"
+						iconStyle.map = "https://www.symbols.com/images/symbol/330_restaurant.png"
 						break;
 				}
 			}
