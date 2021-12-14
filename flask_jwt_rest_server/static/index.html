@@ -189,9 +189,9 @@
         				zoom: 14
 			});
 
-			infoWindow = new google.map.infoWindow;
+			//infoWindow = new google.map.infoWindow;
 			//Will try geolocation
-		//	if(navigator.geolocation){
+			if(navigator.geolocation){
 			//Get user coordinates
 			var userPosition = {
 				lat: position.coords.latitude,
@@ -213,9 +213,9 @@
 				infoWindow.open(map, this);
 			});
 
-			//}else{
-			//	alert("Geolocation is not supported by your browser");
-			//}
+			}else{
+				alert("Geolocation is not supported by your browser");
+			}
 
 		/*	var lat = position.coords.latitude;
 			var long = position.coords.longitude;
