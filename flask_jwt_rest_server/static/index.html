@@ -226,7 +226,7 @@
 			console.log("creating marker");
 			var type = place.types;
 			var iconStyle = {
-				scaledSize: new google.maps.Size(50, 50),
+				scaledSize: new google.maps.Size(25, 25),
 				url: "https://i.ebayimg.com/images/g/EhEAAOSwocFe-vel/s-l300.jpg",
 				origin: new google.maps.Point(0,0),
 				anchor: new google.maps.Point(0,0)
@@ -236,7 +236,7 @@
 
 				switch(placeType){
 					case "restaurant":
-						iconStyle.url = "https://www.symbols.com/images/symbol/330_restaurant.png"
+						//iconStyle.url = "https://www.symbols.com/images/symbol/330_restaurant.png"
 						break;
 				}
 			}
