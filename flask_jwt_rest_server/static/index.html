@@ -213,12 +213,13 @@
 		function callback(results, status){
 			console.log("inside callback");
 			console.log("callback of nearbysearch");
-			if(status == google.map.places.PlacesServiceStatus.OK){
+			//if(status == google.map.places.PlacesServiceStatus.OK){
+				console.log("There are " + results.length + " results");
 				for (var i = 0; i < results.length; i++) {
 					var place = results[i];
      				 createMarker(results[i]);
 				}
-			}
+			//}
 		}	
 
 		function createMarker(place){
