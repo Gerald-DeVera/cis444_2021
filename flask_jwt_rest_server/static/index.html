@@ -21,44 +21,7 @@
 		
 		var curUser, map, infoWindow, service;
 
-	/*	function initMap(){
-			
-			//Initialize base map with CSUSM location
-			map = new google.maps.Map(document.getElementById('embedMap'), {
-        		center: {
-            				lat: 33.1317045,
-            				lng: -117.1615832
-        				},
-        				zoom: 14
-			});
 
-			infoWindow = new google.map.infoWindow;
-
-			if(!navigator.geolocation)
-			{
-				//geolocation doesn't work
-				handleLocationError(false, infoWindow, map.getCenter());
-			}else{
-			//Get user coordinates
-			var userPosition = {
-				lat: position.coords.latitude,
-				long = position.coords.longitude
-			};
-			
-			//set user location as center of map
-			map.setCenter(userPosition);
-
-			//create user marker
-			var userMarker = new google.maps.Marker({
-				map: map,
-				position: userPosition
-			});
-
-			//Apply map options and connect map to html
-			map = new google.maps.Map(document.getElementById("embedMap"), myOptions);
-			//Create infoWindow
-			}
-		}*/
 
 		//$(document).ready(function(){
 			//window.send_form = function(){
@@ -189,7 +152,7 @@
         				zoom: 14
 			});
 
-			//infoWindow = new google.map.infoWindow;
+			infoWindow = new google.map.infoWindow;
 			//Will try geolocation
 			if(navigator.geolocation){
 			//Get user coordinates
