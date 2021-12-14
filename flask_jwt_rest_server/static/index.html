@@ -226,19 +226,22 @@
 			console.log("creating marker");
 			var type = place.types;
 			var iconStyle = {
-				Size: new google.maps.Size(50, 50),
-				map: map,
-				icon: "https://i.ebayimg.com/images/g/EhEAAOSwocFe-vel/s-l300.jpg"
+				scaledSize: new google.maps.Size(50, 50),
+				url: "https://i.ebayimg.com/images/g/EhEAAOSwocFe-vel/s-l300.jpg",
+				origin: new google.maps.Point(0,0),
+				anchor: new google.maps.Point(0,0)
 			};
 			for(var i = 0; i < type.length; i++){
 				var placeType = type[i];
 
 				switch(placeType){
 					case "restaurant":
-						iconStyle.map = "https://www.symbols.com/images/symbol/330_restaurant.png"
+						iconStyle.url = "https://www.symbols.com/images/symbol/330_restaurant.png"
 						break;
 				}
 			}
+
+			console.log(iconStyle.url);
 
 			//Create a marker on the location
 			var marker = new google.maps.Marker({
