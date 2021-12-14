@@ -19,7 +19,7 @@
 	
 	<script>
 		
-		var curUser, map, infoWindow, service;
+		var curUser, map, infoWindow, service, userPosition;
 
 
 
@@ -144,7 +144,7 @@
 			//Will try geolocation
 			if(navigator.geolocation){
 			//Get user coordinates
-			var userPosition = {
+			userPosition = {
 				lat: +position.coords.latitude,
 				long: +position.coords.longitude
 			};
@@ -177,13 +177,9 @@
 
 		}
 
+
 	function nearbyRestaurants(){
 		console.log("Searching for nearby restaurants");
-		//Get user coordinates
-		var userPosition = {
-				lat: +position.coords.latitude,
-				long: +position.coords.longitude
-			};
 
 		console.log(userPosition.lat);
 		
