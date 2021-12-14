@@ -41,6 +41,7 @@
 						//make secure call with the jwt
 						//get_books();
 						$('#login').hide();
+						$('#mapButton').show();
 				}, "json").fail( function(response) {
 						//this gets called if the server throws an error
 						console.log("error");
@@ -236,7 +237,7 @@
 
 				switch(placeType){
 					case "restaurant":
-						//iconStyle.url = "https://www.symbols.com/images/symbol/330_restaurant.png"
+						iconStyle.url = "https://www.symbols.com/images/symbol/330_restaurant.png"
 						break;
 				}
 			}
@@ -281,11 +282,10 @@
 			</form>
 		</div>
 
-		<button type="button" onclick="showMap()">Open Google Map</button>
+		<button id="mapButton" type="button" onclick="showMap()" style="display:none">Open Google Map</button>
 
-		<button type="button" onclick="nearbyRestaurants()">Search for Restaurants</button>
-
-		<div id="embedMap" style=" width: 400px; height: 300px;" >
+		<div id="embedMap" style="display:none" >
+			<!--style=" width: 400px; height: 300px;"-->
 		</div>
 
 
