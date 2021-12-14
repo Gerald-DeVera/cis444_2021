@@ -230,7 +230,7 @@
 				}
 			}
 
-			console.log(iconStyle.url);
+			//console.log(iconStyle.url);
 
 			//Create a marker on the location
 			var marker = new google.maps.Marker({
@@ -247,7 +247,8 @@
 			
 			console.log(place.name)
 			var paragraph = document.getElementById("restaurantList");
-			paragraph.innerHTML = + ", " + place.name.toString();
+			paragraph.innerHTML += " ";
+			paragraph.innerHTML += place.name.toString();
 			//paragraph.textContext = " " + place.name.toString();
 
 			//document.body.insertAdjacentHTML("beforeend", place.name);
