@@ -166,8 +166,20 @@
 				infoWindow.setContent('Your Location');
 				infoWindow.open(map, this);
 
+		
+
+			//define request
+			var requestRestaurant = {
+                location: locat,
+                radius: '8000',
+                type: ['restaurant']
+        	};
+
 			//initialize service
 			service = new google.maps.places.PlacesService(map);
+
+			//call service request
+			service.nearbySearch(requestRestaurant, callback);	
 
 			});
 			//Geolocation doesn't work
