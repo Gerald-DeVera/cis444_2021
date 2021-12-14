@@ -199,7 +199,7 @@
 			};
 
 			console.log(userPosition.lat);
-			var locat = new google.maps.LatLng(lat, long);
+			var locat = new google.maps.LatLng(userPosition.lat, userPosition.long);
 			//set user location as center of map
 			map.setCenter(userPosition);
 
