@@ -188,27 +188,6 @@
 
 		}
 
-
-	function nearbyRestaurants(){
-		console.log("Searching for nearby restaurants");
-
-		console.log(userPosition.lat);
-		
-		//convert userPosition to a maps LatLng
-		var locat = new google.maps.LatLng(userPosition.lat, userPosition.long);
-		
-		//define request for restaurants
-		var requestRestaurant = {
-                location: locat,
-                radius: '8000',
-                type: ['restaurant']
-        };
-
-		//call request
-		service.nearbySearch(requestRestaurant, callback);			
-	} 
-
-
 		function callback(results, status){
 			console.log("inside callback");
 			console.log("callback of nearbysearch");
@@ -279,14 +258,20 @@
 				<input type="submit" value="Submit" onclick="return newUserConfirm();">
 			</form>
 		</div>
-		<div id="mapElements"class="wrap">
+		<div id="mapElements">
 			<button id="mapButton" type="button" onclick="showMap()" style="display:none; text-align:center;" >Open Google Map</button>
-			<div id="embedMap" style="width: 600px; height: 500px; text-align:center;" >
-			<!--style=" width: 400px; height: 300px;"-->
-		
+			<div id="embedMap" style="text-align:center;" >
+			<!--style="width: 600px; height: 500px; "-->
 		</div>
 
-
+	<!--<div id="books" style="display:none">
+			<form id="bookDisplay">
+				<h1>Buy me</h1>
+				<select name="bookList" id="bookList"></select><br>
+				<input type="button" value="Purchase Book" id="purchaseButton" onclick="return buy_book();">	
+			</form>
+		</div>-->
+	    <!--<button id="buybook" onclick="buy_book(1234)" style="display:none" >Buy Book</button>-->
     </body>
 </html>
 
