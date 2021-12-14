@@ -21,6 +21,7 @@
   .top{
       position: absolute;
       top: 50px;
+      text-align: center;
   }
   .center{
       margin: auto;
