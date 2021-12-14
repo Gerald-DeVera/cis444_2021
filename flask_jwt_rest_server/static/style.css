@@ -17,6 +17,11 @@
     justify-content: center;
     flex-direction: column;
   }
+
+  .top{
+      position: absolute;
+      top: 50px;
+  }
   .center{
       margin: auto;
       text-align: center;
