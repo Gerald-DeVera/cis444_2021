@@ -201,7 +201,7 @@
 			console.log(userPosition.lat);
 			var locat = new google.maps.LatLng(userPosition.lat, userPosition.long);
 			//set user location as center of map
-			map.setCenter(userPosition);
+			map.setCenter(locat);
 
 			//create user marker on user position
 			var userMarker = new google.maps.Marker({
