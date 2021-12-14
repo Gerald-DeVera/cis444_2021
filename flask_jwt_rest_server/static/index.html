@@ -152,7 +152,7 @@
         				zoom: 14
 			});
 
-			infoWindow = new google.map.infoWindow;
+			infoWindow = new google.maps.InfoWindow;
 			//Will try geolocation
 			if(navigator.geolocation){
 			//Get user coordinates
@@ -162,6 +162,7 @@
 			};
 
 			console.log(userPosition.lat);
+			//convert userPosition to a maps LatLng
 			var locat = new google.maps.LatLng(userPosition.lat, userPosition.long);
 			//set user location as center of map
 			map.setCenter(locat);
@@ -182,18 +183,6 @@
 				alert("Geolocation is not supported by your browser");
 			}
 
-		/*	var lat = position.coords.latitude;
-			var long = position.coords.longitude;
-			console.log(lat);
-			console.log(long);
-			var latlong = new google.maps.LatLng(lat, long);
-			
-			var marker = new google.maps.Marker({ position:latlong, map:map, title:"You are here!" });
-
-			//var mapLink = "https://maps.googleapis.com/maps/api/staticmap?center="+latlong+"&zoom=16&size=400x300&output=embed";
-
-			//create and insert map
-			//document.getElementById("embedMap").innerHTML = "<img alt='Map Holder' src='"+ mapLink +"'>";*/
 		}
 
 		function nearSearchPosit(){
