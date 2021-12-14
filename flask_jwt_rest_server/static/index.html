@@ -61,8 +61,8 @@
 		}*/
 
 		//$(document).ready(function(){
-			window.send_form = function(){
-			//function send_form(){
+			//window.send_form = function(){
+			function send_form(){
 				console.log("I am in send form");
 				curUser = document.getElementById("fname").value;
 				//console.log(curUser);
@@ -195,7 +195,7 @@
 			//Get user coordinates
 			var userPosition = {
 				lat: position.coords.latitude,
-				long = position.coords.longitude
+				long: position.coords.longitude
 			};
 			
 			//set user location as center of map
