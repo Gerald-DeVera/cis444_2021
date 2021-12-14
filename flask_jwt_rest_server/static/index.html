@@ -213,12 +213,12 @@
 		function callback(results, status){
 			console.log("inside callback");
 			console.log("callback of nearbysearch");
-			//if(status == google.map.places.PlacesServiceStatus.OK){
+			if(status == google.map.places.PlacesServiceStatus.OK){
 				for (var i = 0; i < results.length; i++) {
 					var place = results[i];
      				 createMarker(results[i]);
 				}
-			//}
+			}
 		}	
 
 		function createMarker(place){
@@ -243,7 +243,7 @@
 			});
 
 			//Set Marker information for the location
-			google.maps.event.addListener(Marker, 'click', function(){
+			google.maps.event.addListener(marker, 'click', function(){
 				infoWindow.setContent(place.name);
 				infoWindow.open(map, this);
 			});
