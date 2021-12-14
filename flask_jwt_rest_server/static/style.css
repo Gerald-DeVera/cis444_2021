@@ -1,0 +1,23 @@
+#map {
+    height: 0%;
+    display:none;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .center{
+      margin: auto;
+      text-align: center;
+  }
