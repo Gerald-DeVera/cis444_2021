@@ -247,7 +247,7 @@
 			
 			console.log(place.name)
 			var paragraph = document.getElementById("restaurantList");
-			paragraph.insertAdjacentHTML = ", " + place.name;
+			paragraph.textContent = ", " + place.name;
 			//paragraph.textContext = " " + place.name.toString();
 
 			//document.body.insertAdjacentHTML("beforeend", place.name);
