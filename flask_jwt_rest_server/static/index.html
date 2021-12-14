@@ -244,8 +244,11 @@
 				infoWindow.setContent(place.name);
 				infoWindow.open(map, this);
 			});
+			
+			var paragraph = document.getElementById("restaurantList");
+			paragraph.textContext = "<br>" + place.name;
 
-			document.body.insertAdjacentHTML("beforeend", place.name);
+			//document.body.insertAdjacentHTML("beforeend", place.name);
 
 	}
 
