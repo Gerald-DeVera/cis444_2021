@@ -4,8 +4,8 @@
 	     <script src="https://code.jquery.com/jquery-3.6.0.js" 
 		     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	     <script src="/static/cis444.js"></script>
-		 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqHsEvaX5va8GXURbX4K1qigwpvPWVVW0&callback=initMap&libraries=&v=weekly"
-		 defer async></script>
+		 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqHsEvaX5va8GXURbX4K1qigwpvPWVVW0&callback=initMap&libraries=&v=weekly"
+		 ></script>
 		<!-- <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqHsEvaX5va8GXURbX4K1qigwpvPWVVW0&libraries=places&callback=initMap">
 	</script>-->
@@ -20,7 +20,7 @@
 		
 		var curUser, map, infoWindow, service;
 
-		function initMap(){
+	/*	function initMap(){
 			
 			//Initialize base map with CSUSM location
 			map = new google.maps.Map(document.getElementById('embedMap'), {
@@ -57,7 +57,7 @@
 			map = new google.maps.Map(document.getElementById("embedMap"), myOptions);
 			//Create infoWindow
 			}
-		}
+		}*/
 
 		function handleLocationError(){
 			infoWindow.setPosition(pos)
@@ -65,29 +65,31 @@
 			infoWindow.open(map)
 		}
 
-		function send_form(){
-			console.log("I am in send form");
-			curUser = document.getElementById("fname").value;
-			//console.log(curUser);
-			$.post("/open_api/login", { "firstname":$('#fname').val(), "password":$('#password').val()},
+		$(document).ready(function(){
+			function send_form(){
+				console.log("I am in send form");
+				curUser = document.getElementById("fname").value;
+				//console.log(curUser);
+				$.post("/open_api/login", { "firstname":$('#fname').val(), "password":$('#password').val()},
                        		function(data, textStatus) {
-					//this gets called when browser receives response from server
-					console.log(data.token);
-					//Set global JWT
-					jwt = data.token;
-					console.log("this is jwt");
-					console.log(jwt);
-					//make secure call with the jwt
-					//get_books();
-					$('#login').hide();
+						//this gets called when browser receives response from server
+						console.log(data.token);
+						//Set global JWT
+						jwt = data.token;
+						console.log("this is jwt");
+						console.log(jwt);
+						//make secure call with the jwt
+						//get_books();
+						$('#login').hide();
 				}, "json").fail( function(response) {
-					//this gets called if the server throws an error
-					console.log("error");
-					console.log(response);
+						//this gets called if the server throws an error
+						console.log("error");
+						console.log(response);
 				});
 			return false;
 		}
-
+		$("").click(send_form);
+		});
 		function get_books(){
 			 //make secure call with the jwt
 			secure_get_with_token("/secure_api/get_books", {} , function(data){
@@ -188,8 +190,6 @@
 			console.log(long);
 			var latlong = new google.maps.LatLng(lat, long);
 			
-			
-			
 			var marker = new google.maps.Marker({ position:latlong, map:map, title:"You are here!" });
 
 			//var mapLink = "https://maps.googleapis.com/maps/api/staticmap?center="+latlong+"&zoom=16&size=400x300&output=embed";
@@ -238,8 +238,10 @@
   				<input type="text" id="fname" name="fname" value="John"><br>
   			<label for="password">Password:</label><br>
   				<input type="password" id="password" name="password" value="Doe"><br><br>
-  			<input type="submit" value="Login" onclick="return send_form();">
-			<input type="button" value="Create New User" onclick="return addUserForm();">
+  			<input id="loginButton" type="button" value="Login" >
+				<!--onclick="return send_form();"-->
+
+			<input id="createNewUserButton"type="button" value="Create New User" onclick="return addUserForm();">
 			</form>
 	    </div>
 
