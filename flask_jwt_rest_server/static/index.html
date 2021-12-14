@@ -60,8 +60,9 @@
 			}
 		}*/
 
-		$(document).ready(function(){
-			function send_form(){
+		//$(document).ready(function(){
+			window.send_form = function(){
+			//function send_form(){
 				console.log("I am in send form");
 				curUser = document.getElementById("fname").value;
 				//console.log(curUser);
@@ -83,8 +84,8 @@
 				});
 			return false;
 		}
-		$("loginButton").click(send_form);
-		});
+	//	$("loginButton").click(send_form);
+		//});
 
 		function get_books(){
 			 //make secure call with the jwt
