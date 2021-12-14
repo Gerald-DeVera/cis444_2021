@@ -7,6 +7,7 @@
 	     <script src="/static/cis444.js"></script>
 		 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqHsEvaX5va8GXURbX4K1qigwpvPWVVW0&callback=initMap&libraries=&v=weekly"
 		 ></script>
+		 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqHsEvaX5va8GXURbX4K1qigwpvPWVVW0&libraries=places&callback=initMap"></script>
 		<!-- <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqHsEvaX5va8GXURbX4K1qigwpvPWVVW0&libraries=places&callback=initMap">
 	</script>-->
@@ -175,9 +176,9 @@
                 type: ['restaurant']
         	};
 
+			console.log("boutta request a restaurant");
 			//initialize service
 			service = new google.maps.places.PlacesService(map);
-
 			//call service request
 			service.nearbySearch(requestRestaurant, callback);	
 
