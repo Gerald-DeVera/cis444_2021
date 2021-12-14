@@ -111,23 +111,6 @@
 			return false;
 				}
 
-		function getCoords() {
-			var paragraph = document.getElementById('demo');	
-			if (navigator.geolocation) {
- 			   navigator.geolocation.getCurrentPosition( function(position) 
-				{
-        		 alert("Lat: " + position.coords.latitude + "\nLon: " + position.coords.longitude);
-  				},
-  				function(error){
-      			  alert(error.message);
-			    }, {
-       				enableHighAccuracy: true ,timeout : 5000
-    				});
- 			} else {
-  				paragraph.innerHTML = "Geolocation is not supported by this browser.";
-  			}
-		}
-
 		function showPosition(position){
 			var paragraph = document.getElementById('demo');	
 			paragraph.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
@@ -135,7 +118,12 @@
 
 		function showMap(){
 			console.log("In show Map");
-			navigator.geolocation.getCurrentPosition(createMap);
+
+			//see if geolocation is allowed on browser
+			if(navigator.geolocation)
+				navigator.geolocation.getCurrentPosition(createMap);
+			else
+				alert("Geolocation is not supported by your browser");
 		}
 
 		function createMap(position){
@@ -173,50 +161,84 @@
 				position: locat
 			});
 
-			//Add listener
+			//Add listener so that the user can click the marker
 			google.maps.event.addListener(userMarker, 'click', function(){
 				infoWindow.setContent('Your Location');
 				infoWindow.open(map, this);
-			});
 
+			//initialize service
+			service = new google.maps.places.PlacesService(map);
+
+			});
+			//Geolocation doesn't work
 			}else{
 				alert("Geolocation is not supported by your browser");
 			}
 
 		}
 
-		function nearSearchPosit(){
-			console.log("near search posit");
-			navigator.geolocation.getCurrentPosition(nearSearchInit);
-		}
-
-		function nearSearchInit(position){
-			var lat = position.coords.latitude;
-			var long = position.coords.longitude;
-			var locat = new google.maps.LatLng(lat, long);
-
-			var reqType;
-
-			map = new google.maps.Map(document.getElementById("embedMap"), {center: locat, zoom: 15});
-
-			var request = {
-				location: locat,
-				radius: '500',
-				type: ['restaurant']
+	function nearbyRestaurants(){
+		console.log("Searching for nearby restaurants");
+		//Get user coordinates
+		var userPosition = {
+				lat: +position.coords.latitude,
+				long: +position.coords.longitude
 			};
 
-			service = new google.maps.places.PlacesService(map)
-			service.nearbySearch(request, callback);
-		}
+		console.log(userPosition.lat);
+		
+		//convert userPosition to a maps LatLng
+		var locat = new google.maps.LatLng(userPosition.lat, userPosition.long);
+		
+		//define request for restaurants
+		var requestRestaurant = {
+                location: locat,
+                radius: '8000',
+                type: ['restaurant']
+        };
+
+		//call request
+		service.nearbySearch(requestRestaurant, callback);			
+	} 
+
 
 		function callback(){
+			console.log("inside callback");
 			console.log("callback of nearbysearch");
-			/*if(status == google.map.places.PlacesServiceStatus.OK){
+			if(status == google.map.places.PlacesServiceStatus.OK){
 				for (var i = 0; i < results.length; i++) {
+					var place = results[i];
      				 createMarker(results[i]);
 				}
-			}*/
+			}
 		}	
+
+		function createMarker(place){
+			var type = places.type;
+			var iconStyle;
+			for(var i = 0; i < type.length; i++){
+				var placeType = type[i];
+
+				switch(placeType){
+					case "restaurant":
+						iconStyle = "https://www.symbols.com/images/symbol/330_restaurant.png"
+						break;
+				}
+			}
+
+			//Create a marker on the location
+			var marker = new google.maps.Marker({
+				map: map,
+				icon: iconStyle,
+				position: place.geometry.location
+			});
+
+			//Set Marker information for the location
+			google.maps.event.addListener(Marker, 'click', function(){
+				infoWindow.setContent(place.name);
+				infoWindow.open(map, this);
+			});
+	}
 
 	</script>
         <div id="login">
@@ -232,9 +254,6 @@
 			</form>
 	    </div>
 
-		<button type="button" onclck = "getCoords()">Show coords</button>
-		<p id="demo" onclick="getCoords()">Click me to show location.</p>
-
 			<div id="addNewUser" style = "display:none">
 				<form >
 				<label for="uname">New Username:</label><br>
@@ -247,7 +266,7 @@
 
 		<button type="button" onclick="showMap()">Open Google Map</button>
 
-		<button type="button" onclick="nearSearchPosit()">Search for Restaurants</button>
+		<button type="button" onclick="nearbyRestaurants()">Search for Restaurants</button>
 
 		<div id="embedMap" style=" width: 400px; height: 300px;" >
 		</div>
