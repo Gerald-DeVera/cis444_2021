@@ -90,7 +90,7 @@
 		}
 		//$("").click(send_form);
 		//});
-		
+
 		function get_books(){
 			 //make secure call with the jwt
 			secure_get_with_token("/secure_api/get_books", {} , function(data){
@@ -185,7 +185,43 @@
 			//Location Data
 			//var latlong = position.coords.latitude + "," + position.coords.longitude;
 			$('#embedMap').show();
-			var lat = position.coords.latitude;
+			map = new google.maps.Map(document.getElementById('embedMap'), {
+        		center: {
+            				lat: 33.1317045,
+            				lng: -117.1615832
+        				},
+        				zoom: 14
+			});
+
+			infoWindow = new google.map.infoWindow;
+			//Will try geolocation
+			if(navigator.geolocation){
+					//Get user coordinates
+			var userPosition = {
+				lat: position.coords.latitude,
+				long = position.coords.longitude
+			};
+			
+			//set user location as center of map
+			map.setCenter(userPosition);
+
+			//create user marker on user position
+			var userMarker = new google.maps.Marker({
+				map: map,
+				position: userPosition
+			});
+
+			//Add listener
+			google.maps.event.addListener(userMarker, 'click', function(){
+				infoWindow.setContent('Your Location');
+				infoWindow.open(map, this);
+			});
+
+			}else{
+				alert("Geolocation is not supported by your browser");
+			}
+
+		/*	var lat = position.coords.latitude;
 			var long = position.coords.longitude;
 			console.log(lat);
 			console.log(long);
@@ -196,7 +232,7 @@
 			//var mapLink = "https://maps.googleapis.com/maps/api/staticmap?center="+latlong+"&zoom=16&size=400x300&output=embed";
 
 			//create and insert map
-			//document.getElementById("embedMap").innerHTML = "<img alt='Map Holder' src='"+ mapLink +"'>";
+			//document.getElementById("embedMap").innerHTML = "<img alt='Map Holder' src='"+ mapLink +"'>";*/
 		}
 
 		function nearSearchPosit(){
