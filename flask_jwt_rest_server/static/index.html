@@ -65,7 +65,7 @@
 			infoWindow.open(map)
 		}
 
-		//$(document).ready(function(){
+		$(document).ready(function(){
 			function send_form(){
 				console.log("I am in send form");
 				curUser = document.getElementById("fname").value;
@@ -88,8 +88,8 @@
 				});
 			return false;
 		}
-		//$("").click(send_form);
-		//});
+		$("loginButton").click(send_form);
+		});
 
 		function get_books(){
 			 //make secure call with the jwt
@@ -275,7 +275,7 @@
   				<input type="text" id="fname" name="fname" value="John"><br>
   			<label for="password">Password:</label><br>
   				<input type="password" id="password" name="password" value="Doe"><br><br>
-  			<input id="loginButton" type="button" value="Login" onclick="return send_form();">
+  			<input id="loginButton" type="button" value="Login" >
 				<!--onclick="return send_form();"-->
 
 			<input id="createNewUserButton"type="button" value="Create New User" onclick="return addUserForm();">
