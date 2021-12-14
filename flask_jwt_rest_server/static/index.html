@@ -244,6 +244,9 @@
 				infoWindow.setContent(place.name);
 				infoWindow.open(map, this);
 			});
+
+			document.body.insertAdjacentHTML("beforeend", place.name);
+
 	}
 
 	</script>
@@ -275,6 +278,9 @@
 			<div id="embedMap" style="width: 900px; height: 800px; text-align:center;" >
 			<!--style="width: 600px; height: 500px; "-->
 		</div>
+
+		<h1 style="color:bisque; text-align: right;"></h1>
+		<p id="restaurantList;" style="color:darksalmon; text-align: right;"></p>
 
 	<!--<div id="books" style="display:none">
 			<form id="bookDisplay">
